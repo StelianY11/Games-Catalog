@@ -1,0 +1,54 @@
+.home-wrapper {
+    display: flex; /* Enables Flexbox layout */
+    justify-content: center; /* Centers the content horizontally */
+    align-items: center; /* Aligns the content vertically */
+    height: 84vh; /* Full viewport height */
+    padding: 20px; /* Adds some padding around the edges */
+}
+
+.hero-section {
+    display: flex; /* Enables Flexbox within the hero section */
+    justify-content: space-between; /* Ensures items are spaced apart */
+    align-items: center; /* Centers items vertically */
+    width: 100%; /* Full width for the hero section */
+    max-width: 1250px; /* Optional: Limit the max width */
+}
+
+.welcome-text {
+    flex: 1; /* Keeps the layout consistent */
+    text-align: left; /* Aligns text to the left */
+    margin-right: 20px; /* Adds space between the text and character */
+    padding: 20px; /* Adds padding inside the box */
+    background: rgba(255, 255, 255, 0.1); /* Semi-transparent white for glass effect */
+    border: 1px solid rgba(255, 255, 255, 0.3); /* Subtle border for the glass effect */
+    backdrop-filter: blur(10px); /* Creates the frosted glass effect */
+    border-radius: 10px; /* Rounds the corners */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3), 0 0 20px rgba(255, 0, 0, 0.5); /* Adds more shadow, including a colored glow */
+    color: white; /* Ensures the text is visible on the background */
+    max-width: 500px; /* Optional: Limit the width for better design */
+}
+
+/* Enhanced text shadow for the title and paragraph */
+.welcome-text h1 {
+    font-size: 2.5rem; /* Heading size */
+    margin-bottom: 10px; /* Space below the heading */
+    text-shadow: 0 4px 8px rgba(0, 0, 0, 0.6), 0 0 10px rgba(255, 0, 0, 0.5); /* Adds more shadow and a glowing effect */
+}
+
+.welcome-text p {
+    font-size: 1.2rem; /* Paragraph size */
+    line-height: 1.6; /* Improves readability */
+    text-shadow: 0 2px 5px rgba(0, 0, 0, 0.3), 0 0 8px rgba(255, 0, 0, 0.5); /* Adds a soft shadow with a glow effect */
+}
+.character-container {
+    flex: 1; /* Takes up equal space on the right */
+    display: flex;
+    justify-content: center; /* Centers the character horizontally */
+    align-items: center; /* Centers the character vertically */
+}
+
+.character-img {
+    max-width: 100%; /* Ensures the image doesn't overflow */
+    height: auto; /* Maintains aspect ratio */
+    max-height: 600px; /* Optional: Limits the height */
+}

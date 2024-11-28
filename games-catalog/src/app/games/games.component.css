@@ -1,0 +1,91 @@
+/* Global Styles for Game Catalog */
+body {
+    background-color: #1c1c1c; /* Dark background to highlight the form */
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    color: white;
+}
+
+/* Game Catalog Title */
+.catalog-title {
+    text-align: center;
+    font-size: 3rem;
+    margin: 30px 0;
+    color: #fff;
+}
+
+/* Entire Game Catalog Wrapper */
+.game-catalog {
+    background: rgba(255, 255, 255, 0.1); /* Transparent background for catalog */
+    border: 1px solid rgba(255, 255, 255, 0.3); /* Subtle border for the entire catalog */
+    border-radius: 15px; /* Rounded corners */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3), 0 0 25px rgba(255, 0, 0, 0.5); /* Shadows for the whole container */
+    padding: 30px;
+    width: 100%;
+    max-width: 1200px; /* Optional: set a max width for the catalog */
+    margin: 0 auto;
+    backdrop-filter: blur(8px); /* Frosted glass effect */
+}
+
+/* Container to wrap all game cards */
+.games-wrapper {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); /* Increase the minimum size of cards */
+    gap: 30px; /* Increased gap between cards */
+    justify-items: center;
+}
+
+/* Individual Game Card */
+.game-card {
+    background: rgba(255, 255, 255, 0.1); /* Transparent background */
+    border: 1px solid rgba(255, 255, 255, 0.3); /* Light border for subtle effect */
+    border-radius: 10px; /* Rounded corners */
+    padding: 20px;
+    overflow: hidden;
+    width: 100%;
+    max-width: 350px; /* Larger size for the cards */
+    transition: transform 0.3s ease;
+}
+
+/* Game Image */
+.game-image {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    border-radius: 8px;
+    margin-bottom: 20px;
+}
+
+/* Game Details Section */
+.game-details {
+    text-align: center;
+}
+
+.game-title {
+    font-size: 1.8rem; /* Larger font size for the title */
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.game-description {
+    font-size: 1.1rem; /* Increased font size for description */
+    margin-bottom: 20px;
+    color: #ccc;
+}
+
+/* 'See More' Button */
+.see-more-btn {
+    background-color: #720000; /* Bright cyan color */
+    color: white;
+    text-decoration: none;
+    padding: 12px 25px; /* Bigger button */
+    border-radius: 5px;
+    font-size: 1.2rem;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.see-more-btn:hover {
+    background-color: #a70000;
+    transform: scale(1.05);
+}

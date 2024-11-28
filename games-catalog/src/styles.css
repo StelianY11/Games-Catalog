@@ -3,52 +3,99 @@
 /**Removes all default whitespace*/
 
 * {
-    padding: 0;
-    margin: 0;
-  }
-  
-  /**Reset CSS model sizing calculations*/
-  
-  html {
-    box-sizing: border-box;
-  }
-  
-  *,
-  *:before,
-  *:after {
-    box-sizing: inherit;
-  }
-  
-  html {
-    font: 18px/1.5 Verdana, sans-serif;
-  }
-  
-  body,
-  form,
-  input,
-  textarea,
-  option,
-  select,
-  button {
-    font: inherit;
-  }
+  padding: 0;
+  margin: 0;
+}
+
+body::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: -1;
+}
+
+h1,
+p {
+  color: white;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+}
+
+body {
+  height: 100%;
+  background-image: url('https://t3.ftcdn.net/jpg/02/87/87/18/360_F_287871802_GrrmM4RgBQt7hfIPYFTkRqaj2Fb8xvY4.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  image-rendering: auto;
+  background-attachment: fixed;
+}
+
+/**Reset CSS model sizing calculations*/
+
+html {
+  box-sizing: border-box;
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+}
+
+html {
+  font: 18px/1.5 Verdana, sans-serif;
+}
+
+body,
+form,
+input,
+textarea,
+option,
+select,
+button {
+  font: inherit;
+}
 
 
 /* Media Query */
 @media (min-width: 800px) {
-    html {
-      font-size: 14px;
-    }
+  html {
+    font-size: 14px;
   }
-  
-  @media (min-width: 1024px) {
-    html {
-      font-size: 16px;
-    }
+
+  body {
+    background-image: url('https://t3.ftcdn.net/jpg/02/87/87/18/360_F_287871802_GrrmM4RgBQt7hfIPYFTkRqaj2Fb8xvY4.jpg');
+    background-size: cover;
+    background-position: center;
+    background-attachment: scroll;
   }
-  
-  @media (min-width: 1280px) {
-    html {
-      font-size: 18px;
-    }
+}
+
+@media (min-width: 1024px) {
+  html {
+    font-size: 16px;
   }
+
+  body {
+    background-image: url('https://t3.ftcdn.net/jpg/02/87/87/18/360_F_287871802_GrrmM4RgBQt7hfIPYFTkRqaj2Fb8xvY4.jpg');
+    background-size: cover;
+    background-position: center;
+  }
+}
+
+@media (min-width: 1280px) {
+  html {
+    font-size: 18px;
+  }
+
+  body {
+    background-image: url('https://t3.ftcdn.net/jpg/02/87/87/18/360_F_287871802_GrrmM4RgBQt7hfIPYFTkRqaj2Fb8xvY4.jpg');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+  }
+}

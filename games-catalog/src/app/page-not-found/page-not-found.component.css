@@ -1,0 +1,72 @@
+/* Global styles for the 404 error page */
+body {
+    background-color: #1c1c1c; /* Dark background for the 404 page */
+    font-family: 'Arial', sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+
+/* Wrapper to center the content */
+.error-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+}
+
+.error-container {
+    background: rgba(255, 255, 255, 0.1); /* Transparent background for frosted glass effect */
+    padding: 30px;
+    margin: 5em 0em 9.1em 0em;
+    border-radius: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3), 0 0 15px rgba(255, 0, 0, 0.5);
+    backdrop-filter: blur(10px); /* Frosted glass effect */
+    text-align: center;
+    color: white;
+    max-width: 500px;
+    width: 100%;
+}
+
+/* Styling for the 404 error code */
+.error-code {
+    font-size: 6rem;
+    font-weight: bold;
+    margin-bottom: 20px;
+    color: #ff4d4d;
+}
+
+/* Styling for the error message */
+.error-message {
+    font-size: 2rem;
+    margin-bottom: 10px;
+    color: white;
+}
+
+/* Styling for the error description */
+.error-description {
+    font-size: 1.2rem;
+    margin-bottom: 20px;
+    color: #ccc;
+}
+
+/* Styling the 'Go Back to Homepage' button */
+.home-button {
+    background-color: #720000; /* Red color for the button */
+    color: white;
+    padding: 12px 20px;
+    font-size: 1.2rem;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    display: inline-block;
+}
+
+/* Button hover effect */
+.home-button:hover {
+    background-color: #a70000;
+    transform: scale(1.05);
+}
