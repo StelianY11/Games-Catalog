@@ -1,0 +1,87 @@
+/* Global reset for margin and padding */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Header Styling */
+header {
+    background-color: #333; 
+    padding: 20px 40px; 
+    position: sticky; 
+    top: 0;
+    width: 100%;
+    z-index: 1000; 
+}
+
+/* Navbar Styling */
+.navbar {
+    display: flex;
+    justify-content: space-between; 
+    align-items: center;
+    margin: 0 auto; 
+}
+
+/* Logo Section */
+.logo-wrap {
+    display: flex;
+    align-items: center;
+}
+
+.logo-img {
+    width: 40px; 
+    height: 40px;
+    margin-right: 10px; 
+}
+
+.logo {
+    font-size: 24px;
+    font-weight: bold;
+    color: #fff;
+    letter-spacing: 1px;
+}
+
+/* Navbar Links */
+.nav-links {
+    list-style: none;
+    display: flex;
+}
+
+.nav-item {
+    margin-left: 20px; /* Space between nav items */
+}
+
+.nav-link {
+    text-decoration: none; /* Remove underline */
+    color: #fff; /* White color for text */
+    font-size: 18px;
+    text-transform: uppercase; /* Make text uppercase */
+    font-weight: 500; /* Slightly bold for better readability */
+    padding: 8px 15px; /* Padding around the links */
+    transition: background-color 0.3s ease, color 0.3s ease; /* Smooth transition effect */
+}
+
+.nav-link:hover {
+    background-color: #f39c12; /* Add a hover background color */
+    color: #fff; /* Keep text color white on hover */
+    border-radius: 4px; /* Rounded corners for the hover effect */
+}
+
+/* Responsive Styling */
+@media (max-width: 768px) {
+    .navbar {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .nav-links {
+        flex-direction: column;
+        margin-top: 20px;
+    }
+
+    .nav-item {
+        margin-left: 0;
+        margin-top: 10px;
+    }
+}

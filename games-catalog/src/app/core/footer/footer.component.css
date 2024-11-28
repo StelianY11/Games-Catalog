@@ -1,0 +1,31 @@
+/* Footer styling */
+.footer {
+    background-color: #333; 
+    color: #ecf0f1; 
+    padding: 5px; 
+    text-align: center; 
+    font-family: 'Arial', sans-serif; 
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); 
+    position: relative;
+    bottom: 0;
+    width: 100%;
+}
+
+/* Styling for the heading */
+.footer h1 {
+    font-size: 20px; 
+    font-weight: bold;
+    text-transform: uppercase; 
+}
+
+/* Styling for the paragraph */
+.footer p {
+    font-size: 16px; 
+    font-style: italic; 
+}
+
+/* Hover effect on the footer */
+.footer:hover {
+    background-color: #4f4f4f; 
+    transition: background-color 0.8s ease;
+}
