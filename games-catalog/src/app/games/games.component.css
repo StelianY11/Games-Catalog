@@ -30,10 +30,10 @@ body {
 
 /* Container to wrap all game cards */
 .games-wrapper {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); /* Increase the minimum size of cards */
-    gap: 30px; /* Increased gap between cards */
-    justify-items: center;
+    display: flex; /* Use flexbox to arrange the items in a row */
+    flex-wrap: wrap; /* Allow the items to wrap to the next row if necessary */
+    gap: 30px; /* Space between the cards */
+    justify-content: flex-start; /* Align the cards to the start of the container */
 }
 
 /* Individual Game Card */
