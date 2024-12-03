@@ -6,7 +6,7 @@ import { HomeComponent } from './home/home.component';
 import { LoginComponent } from './user/login/login.component';
 import { RegisterComponent } from './user/register/register.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
-import { GamesComponent } from './games/games.component';
+import { GamesComponent } from './game-resources/games/games.component';
 
 @Component({
   selector: 'app-root',
