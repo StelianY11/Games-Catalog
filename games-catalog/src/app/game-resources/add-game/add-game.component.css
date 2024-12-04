@@ -1,0 +1,89 @@
+/* Wrapper for Add Game Page */
+.add-game-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: rgba(0, 0, 0, 0.5); /* Dimmed transparent background */
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+/* Add Game Container */
+.add-game-container {
+    background: rgba(255, 255, 255, 0.1); /* Transparent background */
+    border: 1px solid rgba(255, 255, 255, 0.3); /* Subtle border */
+    border-radius: 15px; /* Rounded corners */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3), 0 0 25px rgba(255, 0, 0, 0.5); /* Shadows for the container */
+    backdrop-filter: blur(8px); /* Frosted glass effect */
+    padding: 30px;
+    width: 100%;
+    max-width: 600px; /* Limit the width of the container */
+    color: white;
+    text-align: center;
+}
+
+/* Add Game Title */
+.add-game-title {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+    color: #fff;
+}
+
+/* Add Game Form */
+.add-game-form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+/* Input Group */
+.input-group {
+    text-align: left;
+}
+
+/* Label Styling */
+.input-group label {
+    font-size: 1rem;
+    margin-bottom: 5px;
+    display: block;
+    color: #ddd;
+}
+
+/* Input and Textarea Styling */
+.input-group input,
+.input-group textarea {
+    width: 100%;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    background: rgba(255, 255, 255, 0.2);
+    color: white;
+    font-size: 1rem;
+    outline: none;
+    transition: background 0.3s ease;
+}
+
+/* Focus Effect for Inputs */
+.input-group input:focus,
+.input-group textarea:focus {
+    background: rgba(255, 255, 255, 0.4);
+}
+
+/* Add Game Button */
+.add-game-btn {
+    background-color: #720000; /* Red button */
+    color: white;
+    border: none;
+    padding: 12px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1.2rem;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+/* Button Hover Effect */
+.add-game-btn:hover {
+    background-color: #a70000;
+    transform: scale(1.05);
+}

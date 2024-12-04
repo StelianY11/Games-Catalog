@@ -1,0 +1,98 @@
+/* General Wrapper for Game Details */
+.game-details-wrapper {
+    background: rgba(255, 255, 255, 0.1); /* Frosted-glass background */
+    border: 1px solid rgba(255, 255, 255, 0.3); /* Subtle border */
+    border-radius: 15px; /* Smooth rounded edges */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3), 0 0 25px rgba(255, 0, 0, 0.5); /* Subtle shadow */
+    padding: 30px;
+    margin: 60px auto;
+    max-width: 1000px; /* Center the container */
+    backdrop-filter: blur(10px); /* Frosted glass effect */
+    color: white;
+}
+
+/* Header Styles */
+.game-header {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.game-title {
+    font-size: 3rem;
+    font-weight: bold;
+    margin-bottom: 10px;
+    color: #ccc; /* Matches the frosted glass text style */
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.8); /* Adds contrast */
+}
+
+.game-tagline {
+    font-size: 1.5rem;
+    color: #aaa;
+}
+
+/* Main Content Styles */
+.game-content {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px;
+    justify-content: space-between;
+}
+
+/* Game Image Styles */
+.game-image-container {
+    flex: 1;
+    max-width: 500px;
+}
+
+.game-main-image {
+    width: 100%;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Adds a nice shadow around the image */
+}
+
+/* Game Info Styles */
+.game-info {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.game-description {
+    font-size: 1.2rem;
+    line-height: 1.6;
+    color: #ddd;
+}
+
+.game-details-list {
+    list-style: none;
+    padding: 0;
+    font-size: 1.1rem;
+}
+
+.game-details-list li {
+    margin-bottom: 10px;
+}
+
+.game-details-list strong {
+    color: #fff;
+}
+
+/* Play Now Button */
+.play-now-btn {
+    background-color: #720000;
+    color: white;
+    text-decoration: none;
+    padding: 15px 30px;
+    border-radius: 5px;
+    font-size: 1.2rem;
+    font-weight: bold;
+    text-align: center;
+    display: inline-block;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.play-now-btn:hover {
+    background-color: #a70000;
+    transform: scale(1.05);
+}

@@ -9,6 +9,7 @@
 .hero-section {
     display: flex; /* Enables Flexbox within the hero section */
     justify-content: space-between; /* Ensures items are spaced apart */
+    margin: 0 auto;
     align-items: center; /* Centers items vertically */
     width: 100%; /* Full width for the hero section */
     max-width: 1250px; /* Optional: Limit the max width */
@@ -51,4 +52,30 @@
     max-width: 100%; /* Ensures the image doesn't overflow */
     height: auto; /* Maintains aspect ratio */
     max-height: 600px; /* Optional: Limits the height */
+}
+
+/* Container for Buttons */
+.button-container {
+    display: flex;
+    flex-direction: row; /* Arrange buttons side by side */
+    gap: 20px; /* Adds space between the buttons */
+    justify-content: center; /* Centers the buttons horizontally */
+    padding-left: 20px; /* Optional: Add padding to align buttons with text */
+}
+
+/* Button Styling */
+.action-btn {
+    padding: 13px 55px;
+    background-color: #720000;
+    color: white;
+    margin: 30px 5px 15px 5px;
+    text-decoration: none;
+    border-radius: 5px;
+    font-size: 1.2rem;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.action-btn:hover {
+    background-color: #a70000; /* Darker shade on hover */
+    transform: scale(1.05); /* Slight zoom effect */
 }

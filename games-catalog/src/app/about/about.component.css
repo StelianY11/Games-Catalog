@@ -1,0 +1,83 @@
+/* Global Styles for About Page */
+body {
+    background-color: #1c1c1c; /* Dark background to highlight content */
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    color: white;
+}
+
+/* Wrapper for About Section */
+.about-wrapper {
+    background: rgba(255, 255, 255, 0.1); /* Frosted glass background */
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    border-radius: 15px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3), 0 0 25px rgba(255, 0, 0, 0.5);
+    padding: 30px;
+    margin: 30px auto;
+    max-width: 800px;
+    backdrop-filter: blur(8px);
+    text-align: center;
+}
+
+/* Header Styling */
+.about-header h1 {
+    font-size: 3rem;
+    margin-bottom: 20px;
+    color: #fff;
+}
+
+/* About Content Styling */
+.about-content {
+    text-align: left;
+    font-size: 1.2rem;
+    line-height: 1.8;
+    color: #ccc;
+}
+
+.about-content strong {
+    color: #fff; /* Highlighted text */
+}
+
+.features-section {
+    margin-top: 20px;
+}
+
+.features-section h2 {
+    font-size: 2rem;
+    margin-bottom: 15px;
+    color: #fff;
+}
+
+.features-section ul {
+    list-style-type: disc;
+    margin-left: 20px;
+    padding-left: 10px;
+    text-align: left;
+    line-height: 1.8;
+}
+
+.features-section li {
+    font-size: 1.1rem;
+    margin-bottom: 10px;
+    color: #ccc;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+    .about-wrapper {
+        padding: 20px;
+    }
+
+    .about-header h1 {
+        font-size: 2.5rem;
+    }
+
+    .about-content {
+        font-size: 1rem;
+    }
+
+    .features-section h2 {
+        font-size: 1.8rem;
+    }
+}

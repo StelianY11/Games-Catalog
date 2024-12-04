@@ -1,10 +1,14 @@
 /* Global Styles for Game Catalog */
 body {
-    background-color: #1c1c1c; /* Dark background to highlight the form */
+    background-color: #1c1c1c; /* Dark background to highlight the content */
     font-family: 'Arial', sans-serif;
     margin: 0;
     padding: 0;
     color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
 }
 
 /* Game Catalog Title */
@@ -22,9 +26,9 @@ body {
     border-radius: 15px; /* Rounded corners */
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3), 0 0 25px rgba(255, 0, 0, 0.5); /* Shadows for the whole container */
     padding: 30px;
+    margin: 30px auto; /* Adds margin to the catalog */
     width: 100%;
     max-width: 1200px; /* Optional: set a max width for the catalog */
-    margin: 0 auto;
     backdrop-filter: blur(8px); /* Frosted glass effect */
 }
 
@@ -32,29 +36,35 @@ body {
 .games-wrapper {
     display: flex; /* Use flexbox to arrange the items in a row */
     flex-wrap: wrap; /* Allow the items to wrap to the next row if necessary */
-    gap: 30px; /* Space between the cards */
-    justify-content: flex-start; /* Align the cards to the start of the container */
+    gap: 20px; /* Space between the cards */
+    justify-content: center; /* Align the cards to the center of the container */
+    padding: 20px 0;
 }
 
-/* Individual Game Card */
 .game-card {
-    background: rgba(255, 255, 255, 0.1); /* Transparent background */
-    border: 1px solid rgba(255, 255, 255, 0.3); /* Light border for subtle effect */
-    border-radius: 10px; /* Rounded corners */
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.5)); /* Subtle gradient */
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    border-radius: 10px;
     padding: 20px;
     overflow: hidden;
     width: 100%;
-    max-width: 350px; /* Larger size for the cards */
+    max-width: 350px;
     transition: transform 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Center content within the card */
+    justify-content: space-between;
 }
 
-/* Game Image */
+
 .game-image {
-    width: 100%;
-    height: auto;
-    object-fit: cover;
-    border-radius: 8px;
-    margin-bottom: 20px;
+    width: 100%; /* The image will scale to fill the card width */
+    height: auto; /* Automatically adjust height based on image resolution */
+    max-height: 300px; /* Optional: limit the max height to keep uniformity */
+    object-fit: contain; /* Ensures the full image is visible, scaled to fit */
+    border-radius: 8px; /* Rounded corners for a polished look */
+    margin-bottom: 20px; /* Space below the image */
+    display: block; /* Ensures proper rendering in all browsers */
 }
 
 /* Game Details Section */
@@ -66,8 +76,9 @@ body {
     font-size: 1.8rem; /* Larger font size for the title */
     font-weight: bold;
     margin-bottom: 10px;
+    color: #ccc; /* Matches the paragraph text color for better readability */
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.8); /* Optional: Adds a subtle shadow for contrast */
 }
-
 .game-description {
     font-size: 1.1rem; /* Increased font size for description */
     margin-bottom: 20px;
@@ -76,7 +87,7 @@ body {
 
 /* 'See More' Button */
 .see-more-btn {
-    background-color: #720000; /* Bright cyan color */
+    background-color: #720000; /* Bright red color */
     color: white;
     text-decoration: none;
     padding: 12px 25px; /* Bigger button */
@@ -88,4 +99,19 @@ body {
 .see-more-btn:hover {
     background-color: #a70000;
     transform: scale(1.05);
+}
+
+/* Add responsive design for smaller screens */
+@media (max-width: 768px) {
+    .game-catalog {
+        padding: 20px; /* Reduce padding */
+    }
+
+    .game-card {
+        max-width: 100%; /* Make cards full-width on small screens */
+    }
+
+    .games-wrapper {
+        gap: 15px; /* Reduce space between cards */
+    }
 }
