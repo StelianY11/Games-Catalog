@@ -7,20 +7,20 @@
 
 /* Header Styling */
 header {
-    background-color: #333; 
-    padding: 20px 40px; 
-    position: sticky; 
+    background-color: #333;
+    padding: 20px 40px;
+    position: sticky;
     top: 0;
     width: 100%;
-    z-index: 1000; 
+    z-index: 1000;
 }
 
 /* Navbar Styling */
 .navbar {
     display: flex;
-    justify-content: space-between; 
+    justify-content: space-between;
     align-items: center;
-    margin: 0 auto; 
+    margin: 0 auto;
 }
 
 /* Logo Section */
@@ -30,9 +30,9 @@ header {
 }
 
 .logo-img {
-    width: 45px; 
+    width: 45px;
     height: auto;
-    margin-right: 10px; 
+    margin-right: 10px;
 }
 
 .logo {
@@ -49,24 +49,45 @@ header {
 }
 
 .nav-item {
-    margin-left: 20px; /* Space between nav items */
+    margin-left: 20px;
+    /* Space between nav items */
 }
 
 .nav-link {
-    text-decoration: none; /* Remove underline */
-    color: #fff; /* White color for text */
+    text-decoration: none;
+    /* Remove underline */
+    color: #fff;
+    /* White color for text */
     font-size: 18px;
-    text-transform: uppercase; /* Make text uppercase */
-    font-weight: 500; /* Slightly bold for better readability */
-    padding: 8px 15px; /* Padding around the links */
-    transition: background-color 0.3s ease, color 0.3s ease; /* Smooth transition effect */
+    text-transform: uppercase;
+    /* Make text uppercase */
+    font-weight: 500;
+    /* Slightly bold for better readability */
+    padding: 8px 15px;
+    /* Padding around the links */
+    transition: background-color 0.3s ease, color 0.3s ease;
+    /* Smooth transition effect */
 }
 
 .nav-link:hover {
-    background-color: #a40a0a; /* Add a hover background color */
-    color: #fff; /* Keep text color white on hover */
-    border-radius: 4px; /* Rounded corners for the hover effect */
+    background-color: #a40a0a;
+    /* Add a hover background color */
+    color: #fff;
+    /* Keep text color white on hover */
+    border-radius: 4px;
+    /* Rounded corners for the hover effect */
 }
+
+/* Add a divider line between sections */
+.divider {
+    border-left: 2px solid rgba(255, 255, 255, 0.5);
+    /* Single vertical line */
+    height: 30px;
+    /* Height of the divider */
+    margin: 0 20px;
+    /* Space before and after the line */
+}
+
 
 /* Responsive Styling */
 @media (max-width: 768px) {

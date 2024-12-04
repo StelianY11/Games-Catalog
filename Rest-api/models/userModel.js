@@ -5,9 +5,6 @@ const saltRounds = Number(process.env.SALTROUNDS) || 5;
 const { ObjectId } = mongoose.Schema.Types;
 
 const userSchema = new mongoose.Schema({
-    tel: {
-        type: String,
-    }, // have to remove tel
     email: {
         type: String,
         required: true,
