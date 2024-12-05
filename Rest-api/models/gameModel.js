@@ -1,4 +1,5 @@
-import { Schema, model, Types } from "mongoose";
+const mongoose = require('mongoose');
+const { Schema, model, Types } = mongoose;
 
 const gameSchema = new Schema({
     name: {
@@ -14,7 +15,7 @@ const gameSchema = new Schema({
     price: {
         type: Number,
         required: [true, "Game price is required!"],
-        min: [0 , "Game price must be positive number!"],
+        min: [0, "Game price must be positive number!"],
     },
     description: {
         type: String,
@@ -36,6 +37,4 @@ const gameSchema = new Schema({
     }]
 });
 
-const Game = model("Game", gameSchema);
-
-export default Game;
+module.exports = model("Game", gameSchema);

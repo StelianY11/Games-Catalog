@@ -1,144 +1,93 @@
-import { Router } from "express";
-import gameService from "../services/gameService.js";
-import { getErrorMessage } from "../utils/errorUtils.js";
-import { isAuth } from "../middlewares/authMiddleware.js";
+const Game = require('../models/Game');
 
-const gameController = Router();
-
-gameController.get("/", async (req, res) => {
-    const games = await gameService.getAll().lean();
-    res.render("games", { games, title: "Catalog Page - Gaming Team" })
-});
-
-gameController.get("/create", isAuth, (req, res) => {
-    const gameData = req.body;
-    const gameDataType = getGameDataType(gameData);
-
-    res.render("games/create", { gamePlatformType: gameDataType, title: "Catalog Page - Gaming Team" })
-});
-
-gameController.post("/create", isAuth, async (req, res) => {
-    const gameData = req.body;
-    const userId = req.user._id;
-
-    try {
-        await gameService.create(gameData, userId);
-
-        res.redirect("/games")
-    } catch (err) {
-        const gameDataType = getGameDataType(gameData);
-        const error = getErrorMessage(err);
-        res.render("games/create", { game: gameData, gamePlatformType: gameDataType, error, title: "Catalog Page - Gaming Team" })
-    }
-});
-
-gameController.get("/search", isAuth, async (req, res) => {
-    const searchFilter = req.query
-    const games = await gameService.getAll(searchFilter).lean();
-    const gameDataType = getGameDataType(searchFilter);
-
-    res.render("games/search", { games, searchFilter, gamePlatformType: gameDataType, title: "Search - Gaming Team" })
-});
-
-gameController.get("/:gameId/details", async (req, res) => {
-    const game = await gameService.getOne(req.params.gameId).lean();
-    const isOwner = game.owner.toString() === req.user?._id;
-
-    const boughtGame = game.boughtBy?.some(userId => userId.toString() === req.user?._id);
-
-    res.render("games/details", { game, isOwner, boughtGame, title: "Details Page" })
-});
-
-gameController.get("/:gameId/vote", async (req, res) => {
-    const gameId = req.params.gameId;
-    const userId = req.user._id;
-
-    if (await isGameOwner(gameId, userId)) {
-        return res.redirect("/404")
-    }
-
-    try {
-        await gameService.buy(gameId, userId);
-
-        res.redirect(`/games/${gameId}/details`);
-    } catch (err) {
-        console.log(err);
-
-    }
-});
-
-gameController.get("/:gameId/edit", isAuth, async (req, res) => {
-    const game = await gameService.getOne(req.params.gameId).lean();
-    const gameDataType = getGameDataType(game);
-    const gameId = req.params.gameId;
-    const userId = req.user._id;
-
-    if (!(await isGameOwner(gameId, userId))) {
-        return res.redirect("/404")
-    }
-
-    res.render("games/edit", { game, gamePlatformType: gameDataType, title: "Edit Page - Gaming Team" })
-});
-
-gameController.post("/:gameId/edit", isAuth, async (req, res) => {
-    const gameData = req.body;
-    const gameId = req.params.gameId;
-    const userId = req.user._id;
-
-    if (!(await isGameOwner(gameId, userId))) {
-        return res.redirect("/404");
-    }
-
-    try {
-        await gameService.edit(gameId, gameData);
-
-        res.redirect(`/games/${gameId}/details`);
-    } catch (err) {
-        console.log(err);
-    }
-});
-
-gameController.get("/:gameId/delete", isAuth, async (req, res) => {
-    const gameId = req.params.gameId;
-    const userId = req.user._id;
-
-    if (!(await isGameOwner(gameId, userId))) {
-        return res.redirect("/404");
-    }
-
-    try {
-        await gameService.remove(gameId);
-
-        res.redirect("/games");
-    } catch (err) {
-        console.log(err);
-    }
-});
-
-
-function getGameDataType({ platform }) {
-    const gamePlatform = [
-        "PC",
-        "Nintendo",
-        "PS4",
-        "PS5",
-        "XBOX"
-    ];
-
-    const viewData = gamePlatform.map(type => ({
-        value: type,
-        label: type,
-        selected: platform === type ? "selected" : ""
-    }))
-
-    return viewData;
+// Get all games
+function getGames(req, res, next) {
+    Game.find()
+        .populate('owner')
+        .then(games => res.json(games))
+        .catch(next);
 }
 
-async function isGameOwner(gameId, userId) {
-    const game = await gameService.getOne(gameId);
-    const isOwner = game.owner.toString() === userId;
+// Get a single game by ID
+function getGame(req, res, next) {
+    const { gameId } = req.params;
 
-    return isOwner;
+    Game.findById(gameId)
+        .populate('owner')
+        .populate('boughtBy') // Include users who bought the game
+        .then(game => {
+            if (!game) {
+                return res.status(404).json({ message: "Game not found" });
+            }
+            res.json(game);
+        })
+        .catch(next);
 }
 
-export default gameController;
+// Create a new game
+function createGame(req, res, next) {
+    const { name, image, price, description, genre } = req.body;
+    const { _id: userId } = req.user; // Assuming `req.user` contains authenticated user's details
+
+    Game.create({ name, image, price, description, genre, owner: userId })
+        .then(game => res.status(201).json(game))
+        .catch(next);
+}
+
+// Update a game
+function updateGame(req, res, next) {
+    const { gameId } = req.params;
+    const updateData = req.body;
+
+    Game.findByIdAndUpdate(gameId, updateData, { new: true })
+        .then(updatedGame => {
+            if (!updatedGame) {
+                return res.status(404).json({ message: "Game not found" });
+            }
+            res.json(updatedGame);
+        })
+        .catch(next);
+}
+
+// Delete a game
+function deleteGame(req, res, next) {
+    const { gameId } = req.params;
+
+    Game.findByIdAndDelete(gameId)
+        .then(deletedGame => {
+            if (!deletedGame) {
+                return res.status(404).json({ message: "Game not found" });
+            }
+            res.json({ message: "Game deleted successfully" });
+        })
+        .catch(next);
+}
+
+// Buy a game (add user to `boughtBy` list)
+function buyGame(req, res, next) {
+    const { gameId } = req.params;
+    const { _id: userId } = req.user;
+
+    Game.findByIdAndUpdate(
+        gameId,
+        { $addToSet: { boughtBy: userId } }, // Ensure user is added only once
+        { new: true }
+    )
+        .populate('boughtBy')
+        .then(updatedGame => {
+            if (!updatedGame) {
+                return res.status(404).json({ message: "Game not found" });
+            }
+            res.json(updatedGame);
+        })
+        .catch(next);
+}
+
+module.exports = {
+    getGames,
+    getGame,
+    createGame,
+    updateGame,
+    deleteGame,
+    buyGame,
+};

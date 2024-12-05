@@ -33,14 +33,11 @@ const userSchema = new mongoose.Schema({
             message: props => `${props.value} must contains only latin letters and digits!`
         },
     },
-    themes: [{
+    games: [{
         type: ObjectId,
-        ref: "Theme"
-    }], // remove themes or posts and change it it for my use case
-    posts: [{
-        type: ObjectId,
-        ref: "Post"
-    }]
+        ref: "Game"
+    }],
+   
 }, { timestamps: { createdAt: 'created_at' } });
 
 userSchema.methods = {
