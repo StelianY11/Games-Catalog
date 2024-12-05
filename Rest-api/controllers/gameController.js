@@ -1,4 +1,4 @@
-const Game = require('../models/Game');
+const Game = require('../models/gameModel');
 
 // Get all games
 function getGames(req, res, next) {

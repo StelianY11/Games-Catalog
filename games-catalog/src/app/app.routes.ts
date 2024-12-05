@@ -6,7 +6,7 @@ import { GamesComponent } from './game-resources/game/games.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { AddGameComponent } from './game-resources/add-game/add-game.component';
 import { GameDetailsComponent } from './game-resources/games-details/game-details.component';
-import { ProfileComponent } from './profile/profile.component';
+import { ProfileComponent } from './user/profile/profile.component';
 import { AboutComponent } from './about/about.component';
 
 export const routes: Routes = [
